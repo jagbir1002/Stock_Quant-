@@ -28,3 +28,32 @@ Process:
     a. Stocks like NVDA and TSLA, shows the highest fluctuations with sharp drops and peaks 
     b. Stock AMZN shows a temporary peak which was in early 2023, which indicates that the PE ratio increased significantly, but later on it stabilized.
     c.Stocks such as AAPL, MSFT, GOOGL and META show relatively stable PE ratios over the same period of time, with the least fluctuations.
+
+
+
+Enhancing the Analysis of Historical PE Ratios for the Magnificent 7 (2022–2025)
+
+
+Problem statement:
+
+Automating the Pe ratio extraction
+Fix the percentile calculation from static to rolling basis and run a small backtesting using thresholds on PE ratio. 
+
+
+Process:
+
+1. Automating the Pe ratio extraction was done by using the code given by Devanshu, filename=’scrape_data.py. I have also made some changes in the code. Changes are as follows:
+    a. I added a section named tickers, initially the previous code was extracting details from the website for just one company, now the code will extract the pe ratio according to the ticker name.
+    b. I also added a for loop in order to iterate through the tickers dictionary and extract data for each stock.
+    c. I also added an exception (try-except error)so that the code doesn't stop running even if data of any one ticker fails to be extracted. 
+    d. I also imported os, in order to add all the extracted data into one single csv file, or create a csv file if it doesn't exist.
+Done this to ease the usage of scrape_data.py in the file main_code.ipnb
+
+3. Connected the excel file to the main_code.
+
+4. Created a window to calculate the rolling percentile.
+
+5. Ran a backtest (details of the backtest are mentioned in the notebook markdown)
+
+6. Plotted the strategy vs market graph.
+
