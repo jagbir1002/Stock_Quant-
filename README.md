@@ -57,3 +57,33 @@ Done this to ease the usage of scrape_data.py in the file main_code.ipnb
 
 6. Plotted the strategy vs market graph.
 
+
+
+
+Backtesting the Strategies using PE and PB ratio with Multi Rolling Window Analysis for Magnificent 7 
+[ AAPL, MSFT, NVDA, TSLA, META, GOOGL, AMZN ]
+
+Problem statement:
+
+1. Test for multiple rolling windows and backtesting the strategy of using $100K dollars as starting capital with key performance metrics ( MDD, ROI, SHARPE RATIO, ROI TO MDD )
+2. Once the analysis is complete for PE, include PB ratio and test combined PE + PB strategies using similar logic
+
+Process:
+
+1. Creation of the processing_code.ipynb notebook. This contains the same code as the previous task for the automatic PE Ratio extraction from the Marcotrends website. 
+( Extraction of PB ratio along with PE Ratio is the only one addition in this code )
+
+2. Analysis_code_PE.ipynb is the notebook where different rolling windows are tested. I started with 20 as my rolling window then later tested for others as well. 
+Also created an experiment tracking file at the end of this code, which can be used to save the results or keep the track for different rolling windows. 
+
+3. I started the backtest strategy by Signal generation. 
+    a. Buy signal : 1 ( if PE < 10 percentile, stock is undervalued )
+    b. Sell signal : -1 ( if PE > 90 percentile, stock is overvalued )
+    c. Hold : 0 
+   Now I start calculating the performance metrics:
+    a. ROI
+    b. MDD
+    c. Sharpe Ratio 
+    d. ROI to MDD
+    
+4. S$P 500 index is downloaded using the yfinance module. These all the values are then plotted on the multiple y-axis plots
