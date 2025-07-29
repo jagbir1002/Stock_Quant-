@@ -87,3 +87,19 @@ Also created an experiment tracking file at the end of this code, which can be u
     d. ROI to MDD
     
 4. S$P 500 index is downloaded using the yfinance module. These all the values are then plotted on the multiple y-axis plots
+
+5. Now same process is repeated using PB ratio as well 
+
+6. Backtest strategy for PE + PB 
+    Enter on buy signal and stay invested until the sell signal
+    2 Types of returns are calculated, strategy and market. Strategy returns are based on the buy and sell signals which are generated using PE and PB as thresholds.
+    Position gets active when the signal is triggered. 
+    On the other hand Market returns are calculated using simple buy and hold, no signals are used.
+    These returns are then used to calculate performance metrics such as ROI, Sharpe Ratio, MDD, ROI to MDD.
+    Following is the description of the signals:
+        1. Buy : 1 ( When PE , PB < P10 )
+        2. Sell : -1 ( When PE , PB > P90 )
+        3. Hold : 0
+
+7. The graph is then plotted after downloading the S&P 500 file. 
+    ( A small part in the code is added before plotting, In order to ensure all values are numeric, errors="coerce" converts non numeric values to Nan. We are doing this to avoid errors during cumulative returns calculation. )
